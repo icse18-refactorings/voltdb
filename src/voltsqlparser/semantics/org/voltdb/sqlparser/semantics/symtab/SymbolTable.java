@@ -172,4 +172,8 @@ public class SymbolTable implements ISymbolTable {
     public final List<TablePair> getTables() {
         return m_tables;
     }
+
+    public final int getSize() {
+    	return m_lookup.size();
+    }
 }

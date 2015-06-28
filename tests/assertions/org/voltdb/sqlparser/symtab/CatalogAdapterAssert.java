@@ -29,8 +29,9 @@ public class CatalogAdapterAssert extends
         return new CatalogAdapterAssert(actual);
     }
 
-    public CatalogAdapterAssert hasTableNamed(String aTableName,
-                                              Condition<Table> ...conditions) {
+    @SafeVarargs
+	public final CatalogAdapterAssert hasTableNamed(String aTableName,
+			 									    Condition<Table> ...conditions) {
         isNotNull();
         Table tbl = actual.getTableByName(aTableName);
         if (tbl == null) {

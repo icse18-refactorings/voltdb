@@ -29,8 +29,9 @@ public class TableAssert extends AbstractAssert<TableAssert, Table> {
         return new TableAssert(actual);
     }
 
-    public static Condition<Table> withColumnNamed(final String aColumnName,
-                                                    final Condition<Column> ...conditions) {
+    @SafeVarargs
+	public static final Condition<Table> withColumnNamed(final String aColumnName,
+                                                         final Condition<Column> ...conditions) {
         return new Condition<Table>() {
             @Override
             public boolean matches(Table aValue) {

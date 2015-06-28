@@ -1,8 +1,6 @@
 package org.voltdb.sqlparser;
 
 import static org.voltdb.sqlparser.symtab.CatalogAdapterAssert.assertThat;
-import static org.voltdb.sqlparser.symtab.ColumnAssert.withColumnTypeNamed;
-import static org.voltdb.sqlparser.symtab.TableAssert.withColumnNamed;
 
 import java.io.IOException;
 
@@ -11,6 +9,10 @@ import org.voltdb.sqlparser.semantics.grammar.DDLListener;
 import org.voltdb.sqlparser.semantics.symtab.CatalogAdapter;
 import org.voltdb.sqlparser.semantics.symtab.ParserFactory;
 import org.voltdb.sqlparser.syntax.SQLParserDriver;
+import static org.voltdb.sqlparser.symtab.CatalogAdapterAssert.assertThat;
+import static org.voltdb.sqlparser.symtab.SymbolTableAssert.assertThat;
+import static org.voltdb.sqlparser.symtab.ColumnAssert.withColumnTypeNamed;
+import static org.voltdb.sqlparser.symtab.TableAssert.withColumnNamed;
 
 public class TestCreateTable {
 

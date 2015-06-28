@@ -112,7 +112,7 @@ type_expression:
     ;
 
 insert_statement:
-        INSERT INTO table_name ( '(' column_name ( ',' column_name )? ')' )?
+        INSERT INTO table_name ( '(' column_name_list ')' )?
         VALUES values
     ;
         

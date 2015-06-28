@@ -307,10 +307,10 @@ public class DDLListener extends SQLParserBaseListener implements ANTLRErrorList
 	                 tableName);
 	        return;
 	    }
-	    if (ctx.column_name().size() != ctx.values().value().size()) {
-	        addError(ctx.column_name().get(0).start.getLine(),
-	                 ctx.column_name().get(0).start.getCharPositionInLine(),
-	                 (ctx.column_name().size() > ctx.values().value().size())
+	    if (ctx.column_name_list().column_name().size() != ctx.values().value().size()) {
+	        addError(ctx.column_name_list().start.getLine(),
+	                 ctx.column_name_list().start.getCharPositionInLine(),
+	                 (ctx.column_name_list().column_name().size() > ctx.values().value().size())
 	                   ? "Too few values in insert statement."
 	                   : "Too many values in insert statement.");
 	        return;
@@ -320,7 +320,7 @@ public class DDLListener extends SQLParserBaseListener implements ANTLRErrorList
 	    List<String> colNames = new ArrayList<String>();
 	    List<IType>  colTypes = new ArrayList<IType>();
 	    List<String> colVals  = new ArrayList<String>();
-	    for (Column_nameContext colCtx : ctx.column_name()) {
+	    for (Column_nameContext colCtx : ctx.column_name_list().column_name()) {
 	        String colName = colCtx.IDENTIFIER().getText();
 	        IColumn col = table.getColumnByName(colName);
 	        if (col == null) {
