@@ -40,6 +40,7 @@ public interface ISelectQuery {
     ISymbolTable getTables();
 
     void setAST(IAST aMakeQueryAST);
+
 	INeutrino getNeutrinoMath(IOperator aOperator, INeutrino aLeftoperand,
 			INeutrino aRightoperand);
 

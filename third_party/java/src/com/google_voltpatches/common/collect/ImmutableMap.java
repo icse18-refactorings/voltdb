@@ -19,10 +19,6 @@ package com.google_voltpatches.common.collect;
 import static com.google_voltpatches.common.base.Preconditions.checkNotNull;
 import static com.google_voltpatches.common.collect.CollectPreconditions.checkEntryNotNull;
 
-import com.google_voltpatches.common.annotations.Beta;
-import com.google_voltpatches.common.annotations.GwtCompatible;
-import com.google_voltpatches.common.collect.ImmutableMapEntry.TerminalEntry;
-
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -31,6 +27,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 import javax.annotation_voltpatches.Nullable;
+
+import com.google_voltpatches.common.annotations.Beta;
+import com.google_voltpatches.common.annotations.GwtCompatible;
+import com.google_voltpatches.common.collect.ImmutableMapEntry.TerminalEntry;
 
 /**
  * An immutable, hash-based {@link Map} with reliable user-specified iteration

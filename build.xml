@@ -78,14 +78,22 @@
 <!-- Antlr4 properties -->
 <property name='antlr.version'               value='4.5' />
 <property name='generated.dir'               location='target' />
+<<<<<<< HEAD
 <property name='src.generated.dir'           location='${generated.dir}/generated-sources' />
+=======
+<property name='src.generated.dir'           location='${generated.dir}/generated-sources'
+>>>>>>> 3723e6e4c8d97e2041749a70ba58fbaced077185
 <property name='src.antlr.generated.dir'     location='${src.generated.dir}/antlr4' />
 <property name='pkg.antlr.generated.dir'     location='${src.antlr.generated.dir}/org/voltdb/sqlparser/syntax/grammar' />
 <property name='lib.antlr.dir'               location='lib' />
 <property name='antlr.runtime.name'          location='${lib.antlr.dir}/antlr-runtime-${antlr.version}.jar' />
 <property name='antlr.complete.name'         location='${lib.antlr.dir}/antlr-${antlr.version}-complete.jar' />
+<<<<<<< HEAD
 <property name='antlr4.touch.name'           value='antlr4.touch' />
 <property name='antlr4.touch'                location='${src.generated.dir}/${antlr4.touch.name}' />
+=======
+<property name='antlr4.touch'                location='${src.antlr.generated.dir}/antrl.touch' />
+>>>>>>> 3723e6e4c8d97e2041749a70ba58fbaced077185
 
 <property name='src.hsqldb.dir'              location='src/hsqldb19b3' />
 <property name='src.test.dir'                location='tests/frontend' />
@@ -975,7 +983,11 @@ Antlr4 Compilation Macro
 <target name="check_for_sql_grammar">
     <uptodate property="sqlGrammarIsUpToDate"
 	      targetfile="${antlr4.touch}"
+<<<<<<< HEAD
 	      srcfile="${pkg.sqlparser.syntax.dir}/grammar/SQLParser.g4" />
+=======
+	      srcfile="${pkg.sqlparser.syntax.dir}/SQLParser.g4" />
+>>>>>>> 3723e6e4c8d97e2041749a70ba58fbaced077185
 </target>    
 <target name="compile_sql_grammar"
 	depends="check_for_sql_grammar"
@@ -985,14 +997,21 @@ Antlr4 Compilation Macro
 	<pathelement location="${antlr.complete.name}" />
     </path>
     <java classname="org.antlr.v4.Tool" fork="true" failonerror="true"
+<<<<<<< HEAD
 	  dir="${pkg.sqlparser.syntax.dir}/grammar">
+=======
+	  dir="${pkg.sqlparser.syntax.dir}">
+>>>>>>> 3723e6e4c8d97e2041749a70ba58fbaced077185
         <arg value="-o"/>
         <arg value="${pkg.antlr.generated.dir}"/>
 	<arg value="-listener" />
 	<arg value="-no-visitor" />
 	<arg value="-encoding" />
 	<arg value="UTF-8" />
+<<<<<<< HEAD
 	<arg value="SQLParser.g4" />
+=======
+>>>>>>> 3723e6e4c8d97e2041749a70ba58fbaced077185
         <classpath>
             <path refid="antlr.class.path"/>
         </classpath>
@@ -1096,6 +1115,7 @@ Antlr4 Compilation Macro
 
     <!-- compile the individual source directories -->
     <!-- sqlparser syntax -->
+<<<<<<< HEAD
     <echo level="info" message="Compiling SQL Parser ANTLR Generated Packages." />
     <invoke-javac srcdir="${src.antlr.generated.dir}" />
     <echo level="info" message="Compiling SQL Parser Syntax Packages." />
@@ -1103,6 +1123,11 @@ Antlr4 Compilation Macro
     <!-- sqlparser semantics -->
     <echo level="info" message="Compiling SQL Parser Semantics Packages." />
     <invoke-javac srcdir="${src.sqlparser.semantics.dir}" />
+=======
+    <invoke-javac srcdir="${src.sqlparser.syntax.dir}"/>
+    <!-- sqlparser semantics -->
+    <invoke-javac srcdir="${src.sqlparser.semantics.dir}"/>
+>>>>>>> 3723e6e4c8d97e2041749a70ba58fbaced077185
     <!-- hsql -->
     <echo level="info" message="Compiling HSQLDB Packages." />
     <invoke-javac srcdir="${src.hsqldb.dir}"/>

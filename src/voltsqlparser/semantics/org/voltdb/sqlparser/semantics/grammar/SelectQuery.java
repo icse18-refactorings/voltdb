@@ -18,6 +18,7 @@ import org.voltdb.sqlparser.syntax.symtab.IParserFactory;
 import org.voltdb.sqlparser.syntax.symtab.ITable;
 
 
+
 public class SelectQuery implements ISelectQuery, IDQLStatement {
     List<Projection> m_projections = new ArrayList<Projection>();
 
