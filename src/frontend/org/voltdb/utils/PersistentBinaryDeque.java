@@ -100,7 +100,6 @@ public class PersistentBinaryDeque implements BinaryDeque {
                 }
                 assertions();
 
-                moveToValidSegment();
                 PBDSegmentReader segmentReader = m_segment.getReader(m_cursorId);
                 if (segmentReader == null) {
                     segmentReader = m_segment.openForRead(m_cursorId);
@@ -123,14 +122,6 @@ public class PersistentBinaryDeque implements BinaryDeque {
                 assertions();
                 assert (retcont.b() != null);
                 return wrapRetCont(m_segment, retcont);
-            }
-        }
-
-        private void moveToValidSegment() {
-            PBDSegment firstSegment = peekFirstSegment();
-            // It is possible that m_segment got closed and removed
-            if (m_segment == null || m_segment.segmentId() < firstSegment.segmentId()) {
-                m_segment = firstSegment;
             }
         }
 
@@ -157,7 +148,6 @@ public class PersistentBinaryDeque implements BinaryDeque {
                 }
                 assertions();
 
-                moveToValidSegment();
                 long size = 0;
                 boolean inclusive = true;
                 if (m_segment.isOpenForReading(m_cursorId)) { //this reader has started reading from curr segment.
@@ -181,7 +171,6 @@ public class PersistentBinaryDeque implements BinaryDeque {
                 }
                 assertions();
 
-                moveToValidSegment();
                 boolean inclusive = true;
                 if (m_segment.isOpenForReading(m_cursorId)) { //this reader has started reading from curr segment.
                     // Check if there are more to read.
